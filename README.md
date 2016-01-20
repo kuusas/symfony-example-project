@@ -12,6 +12,10 @@
 - jeigu taip, tai pasikeičia į “in progress”, jeigu anaip, tai pasikeičia į “new” ir pan ?
 - Su form eventais, kad select’e nebūtų optiono, kuris negalimas
 
+Events:
+- Task created
+	- send user notification
+
 
 # Architecture
                             Model
@@ -28,7 +32,19 @@ TaskBundle
 
 ## Entities
 - Task
+	- name
+	- text
+	- created
+	- user
+
 - Category
+	- name
+	- created
+
+- User
+	- name
+	- email
+	- created
 
 ## Forms
 - Task

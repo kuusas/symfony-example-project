@@ -1,6 +1,6 @@
 <?php
 
-namespace UserBundle\Tests\Controller;
+namespace NotificationBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -10,7 +10,7 @@ class DefaultControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/');
+        $crawler = $client->request('GET', '/notification/');
 
         $this->assertContains('Hello World', $client->getResponse()->getContent());
     }

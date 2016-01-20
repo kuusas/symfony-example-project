@@ -1,4 +1,19 @@
 services:
-#    task.example:
-#        class: TaskBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    create_task.command_handler:
+        class: TaskBundle\Handler\CreateTaskHandler
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@event_dispatcher'
+        tags:
+            - { name: command_handler, handles: TaskBundle\Command\CreateTask }
+
+
+    update_task.command_handler:
+        class: TaskBundle\Handler\UpdateTaskHandler
+        tags:
+            - { name: command_handler, handles: TaskBundle\Command\UpdateTask }
+
+    delete_task.command_handler:
+        class: TaskBundle\Handler\DeleteTaskHandler
+        tags:
+            - { name: command_handler, handles: TaskBundle\Command\DeleteTask }

@@ -1,0 +1,19 @@
+<h1>Tasks</h1>
+<a href="{{ path('task_new') }}">Create task</a>
+
+<table>
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Text</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.name }}</td>
+            <td>{{ task.text }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
