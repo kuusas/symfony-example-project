@@ -1,0 +1,18 @@
+notification:
+    resource: "@NotificationBundle/Controller/"
+    type:     annotation
+    prefix:   /notification
+
+user:
+    resource: "@UserBundle/Controller/"
+    type:     annotation
+    prefix:   /user
+
+task:
+    resource: "@TaskBundle/Controller/"
+    type:     annotation
+    prefix:   /task
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
