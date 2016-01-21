@@ -1,3 +1,14 @@
+# TODO
+- Assign Category to Task Command
+
+- NotificationBundle Event Listener
+    - Send notification via API (create adapter for API client)
+    - Send email notifications
+- Smoke tests
+- Push to Github
+- Scrutinizerci
+
+
 # Project
 - User registration
 - User login
@@ -54,4 +65,4 @@ TaskBundle
 # Tools
 - phpspec
 - phpunit
-- Scrutinizerci
+

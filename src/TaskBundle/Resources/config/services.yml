@@ -7,7 +7,6 @@ services:
         tags:
             - { name: command_handler, handles: TaskBundle\Command\CreateTask }
 
-
     update_task.command_handler:
         class: TaskBundle\Handler\UpdateTaskHandler
         tags:
@@ -17,3 +16,10 @@ services:
         class: TaskBundle\Handler\DeleteTaskHandler
         tags:
             - { name: command_handler, handles: TaskBundle\Command\DeleteTask }
+
+    assign_category_to_task.command_handler:
+        class: TaskBundle\Handler\AssignCategoryToTaskHandler
+        arguments:
+            - '@doctrine.orm.entity_manager'
+        tags:
+            - { name: command_handler, handles: TaskBundle\Command\AssignCategoryToTask }

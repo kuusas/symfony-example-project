@@ -191,4 +191,9 @@ class Task
     {
         return $this->categories;
     }
+
+    public function addCategory(\TaskBundle\Entity\Category $category)
+    {
+        $this->categories->add($category);
+    }
 }
