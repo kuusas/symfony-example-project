@@ -1,21 +1,7 @@
 <h1>{{ task.name }}</h1>
-<a href="{{ path('task_new') }}">Create task</a>
 
-<table>
-    <thead>
-        <tr>
-            <td>Name</td>
-            <td>Text</td>
-            <td></td>
-        </tr>
-    </thead>
-    <tbody>
-        {% for task in tasks %}
-        <tr>
-            <td><a href="{{ path('task_show', {'id': task.id}) }}">{{ task.name }}</a></td>
-            <td>{{ task.text }}</td>
-            <td><a href="{{ path('task_category', {'id': task.id}) }}">Assign category</a></td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+{{ task.text|nl2br }}
+
+<br>
+<br>
+<a href="{{ path('tasks') }}">Task list</a>

@@ -29,6 +29,7 @@ class CreateTaskHandler
 
         $event = new TaskCreated($task);
         $this->dispatcher->dispatch($event::NAME, $event);
+
         $this->em->flush();
     }
 }

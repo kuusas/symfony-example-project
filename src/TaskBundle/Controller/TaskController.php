@@ -28,7 +28,7 @@ class TaskController extends Controller
     }
 
     /**
-     * @Route("/{id}", name="task_show")
+     * @Route("/show/{id}", name="task_show")
      */
     public function showAction($id)
     {

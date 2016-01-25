@@ -3,24 +3,35 @@
 - Estina / ISIGN
 - With Symfony since 2012
 
+# Project to be proud of!
+- ASK NOW
+
 ## Project
-- Symfony 3.0
 - Task management
+
+## Tools
+- PHP7!
+- Symfony 3.0
+- phpspec
+- phpunit
 
 ## Naming
 - Expressive
 
 ## Architecture
-- Command Bus
+- Entities / Value objects
 - Entity Repositories
-- Event Dispatcher
 - Forms and Validators
-- Entities
+- Command Bus
+- Event Dispatcher
 
-## Bundles
-- 
+## Bundle
+- Adapter
+- Purpose
+- Shared data between bundles
 
 ## 3rd party integrations
+- Libraries
 - Adapter
 
 ## Tests
@@ -29,9 +40,8 @@
 - Functional
 - Smoke
 
-## Tools
-- phpspec
-- phpunit
+## CI
 ...
 - Jenkins
 - Scruitinizer CI
+
