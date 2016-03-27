@@ -7,10 +7,13 @@
 # Running tests
 #
 Unit
+
     bin/phpspec run
 
 Integration & functional tests
+
     bin/phpunit 
 
 Smoke tests
+
     bin/phpunit -c phpunit-smoke.xml.dist
