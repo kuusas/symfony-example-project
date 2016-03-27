@@ -13,5 +13,4 @@ class EmailNotificationsEventListener
         
         // $this->mailer->send('Task created', $email);
     }
-
 }
