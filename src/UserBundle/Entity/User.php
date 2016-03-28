@@ -124,4 +124,9 @@ class User
     {
         return $this->email;
     }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 }
