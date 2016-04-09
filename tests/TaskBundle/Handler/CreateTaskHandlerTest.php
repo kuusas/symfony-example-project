@@ -1,6 +1,6 @@
 <?php
 
-namespace TaskBundle\Tests\Handler;
+namespace Tests\TaskBundle\Tests\Handler;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
