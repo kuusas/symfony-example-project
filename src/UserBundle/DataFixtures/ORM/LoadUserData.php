@@ -4,7 +4,6 @@ namespace UserBundle\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use UserBundle\Entity\User;
-use DateTime;
 
 class LoadUserData implements FixtureInterface
 {
@@ -13,13 +12,11 @@ class LoadUserData implements FixtureInterface
         $user = new User();
         $user->setName('Ponas Petras');
         $user->setEmail('petras@cleanphp.lt');
-        $user->setCreated(new DateTime());
         $manager->persist($user);
 
         $user = new User();
         $user->setName('Panelė Adelė');
         $user->setEmail('adele@cleanphp.lt');
-        $user->setCreated(new DateTime());
         $manager->persist($user);
 
         $manager->flush();

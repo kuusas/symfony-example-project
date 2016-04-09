@@ -3,6 +3,7 @@
 namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use DateTime;
 
 /**
  * User
@@ -42,6 +43,10 @@ class User
      */
     private $email;
 
+    public function __construct()
+    {
+        $this->created = new DateTime();
+    }
 
     /**
      * Get id
