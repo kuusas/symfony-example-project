@@ -3,6 +3,7 @@
 namespace TaskBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use DateTime;
 
 /**
  * Category
@@ -35,6 +36,15 @@ class Category
      */
     private $name;
 
+    public function __construct()
+    {
+        $this->created = new DateTime();
+    }
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 
     /**
      * Get id
