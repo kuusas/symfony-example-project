@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use TaskBundle\Command\AssignCategoryToTask;
 use TaskBundle\Command\CreateTask;
+use TaskBundle\Command\UpdateTask;
 use TaskBundle\Entity\Task;
 use TaskBundle\Form\CategoryChoiceType;
 use TaskBundle\Form\TaskType;
@@ -73,6 +74,49 @@ class TaskController extends Controller
     }
 
     /**
+     * @Route("/edit/{id}", name="task_edit")
+     * @Method({"GET"})
+     */
+    public function editAction($id)
+    {
+        $task = $this->getDoctrine()->getRepository('TaskBundle:Task')->findOneById($id);
+        if (!$task) {
+            $this->createNotFoundException();
+        }
+        $form = $this->form($task, $this->generateUrl('task_update', ['id' => $id]));
+
+        return $this->render('TaskBundle:Task:form.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/update/{id}", name="task_update")
+     * @Method({"POST"})
+     */
+    public function updateAction($id, Request $request)
+    {
+        $task = $this->getDoctrine()->getRepository('TaskBundle:Task')->findOneById($id);
+        if (!$task) {
+            $this->createNotFoundException();
+        }
+        $form = $this->form($task, $this->generateUrl('task_update', ['id' => $id]));
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $this->get('command_bus')->handle(
+                new UpdateTask($form->getData())
+            );
+
+            return $this->redirectToRoute('task_success');
+        }
+
+        return $this->render('TaskBundle:Task:form.html.twig', [
+            'form' => $this->form()->createView()
+        ]);
+    }
+
+    /**
      * @Route("/success", name="task_success")
      * @Method({"GET"})
      */
@@ -118,11 +162,17 @@ class TaskController extends Controller
         ]);
     }
 
-    private function form()
+    private function form(Task $task = null, $action = null)
     {
-        $task = new Task();
+        if ($task === null) {
+            $task = new Task();
+        }
+        if ($action === null) {
+            $action = $this->generateUrl('task_create');
+        }
+
         $form = $this->createForm(TaskType::class, $task, array(
-            'action' => $this->generateUrl('task_create'),
+            'action' => $action,
             'method' => 'POST',
         ));
 
